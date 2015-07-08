@@ -2,7 +2,7 @@ module Song where
 
 -- MODEL
 
-type alias Song = {
+type alias Model = {
     title   : String,
     artist  : String,
     stanzas : List Stanza,
