@@ -5,7 +5,9 @@ module Song where
 type alias Song = {
     title   : String,
     artist  : String,
-    stanzas : List Stanza
+    stanzas : List Stanza,
+    raw     : String,
+    edit    : Bool
 }
 
 type StanzaKind = Verse | Prechorus | Chorus | Bridge
