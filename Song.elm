@@ -1,5 +1,7 @@
 module Song where
 
+import Html exposing (div, text)
+
 -- MODEL
 
 type alias Model = {
@@ -27,4 +29,26 @@ type alias Chord = {
     notes : List Int
 }
 
+blank : Model
+blank =
+    { title   = ""
+    , artist  = ""
+    , stanzas = []
+    , raw     = "hello"
+    , edit    = True
+    }
 
+-- UPDATE
+
+type Action
+    = Update String
+
+update : Action -> Model -> Model
+update action model =
+    case action of
+        Update raw -> { model | raw <- raw }
+
+-- VIEW
+
+view address model =
+    div [] [text model.raw]
