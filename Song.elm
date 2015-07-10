@@ -34,19 +34,15 @@ blank =
     { title   = ""
     , artist  = ""
     , stanzas = []
-    , raw     = "hello"
+    , raw     = ""
     , edit    = True
     }
 
 -- UPDATE
 
-type Action
-    = Update String
-
-update : Action -> Model -> Model
-update action model =
-    case action of
-        Update raw -> { model | raw <- raw }
+update : String -> Model -> Model
+update raw model =
+    { model | raw <- raw }
 
 -- VIEW
 
