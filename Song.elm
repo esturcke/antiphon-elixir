@@ -1,6 +1,9 @@
 module Song where
 
 import Html exposing (div, text)
+import String
+import List exposing(head)
+import Maybe exposing(withDefault)
 
 -- MODEL
 
@@ -41,10 +44,25 @@ blank =
 -- UPDATE
 
 update : String -> Model -> Model
-update raw model =
-    { model | raw <- raw }
+update raw model = model |> parse raw
+
+-- PARSER
+
+parse : String -> Model -> Model
+parse raw model = 
+    let lines = String.lines raw in
+    { model |
+        raw   <- raw,
+        title <- title lines
+    }
+
+title : List String -> String
+title lines = 
+    lines
+    |> head
+    |> withDefault ""
 
 -- VIEW
 
 view address model =
-    div [] [text model.raw]
+    div [] [text model.title]
