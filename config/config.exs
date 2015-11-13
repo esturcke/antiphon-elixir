@@ -9,8 +9,8 @@ use Mix.Config
 config :antiphon, Antiphon.Endpoint,
   url: [host: "localhost"],
   root: Path.dirname(__DIR__),
-  secret_key_base: "Ctd2IEVOGF7AaBR5V05bVsHYF/oAvs8qp5SreJnzgFYMtBayFu1KZ5jmBJijygx/",
-  debug_errors: false,
+  secret_key_base: "yr+rYX6IgNcXKQHH2TG8ev68Wcqv93DAqmiUY+wpnwQnuTvGlVQtidH/Kq9S3wTx",
+  render_errors: [accepts: ~w(html json)],
   pubsub: [name: Antiphon.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
@@ -22,3 +22,8 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+# Configure phoenix generators
+config :phoenix, :generators,
+  migration: true,
+  binary_id: false

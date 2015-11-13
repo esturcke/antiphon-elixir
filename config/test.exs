@@ -15,4 +15,5 @@ config :antiphon, Antiphon.Repo,
   username: "postgres",
   password: "postgres",
   database: "antiphon_test",
-  size: 1 # Use a single connection for transactional tests
+  hostname: "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox
