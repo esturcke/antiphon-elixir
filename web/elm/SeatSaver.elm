@@ -5,4 +5,11 @@ import Html
 
 
 main =
-  Html.text "Hello from Elm"
+  view
+
+
+-- VIEW
+
+
+view =
+  Html.text "Ahoy, hoy from a view"
